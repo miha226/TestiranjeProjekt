@@ -4,14 +4,14 @@ import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class GooglePOM {
+public class Google {
     static WebDriver driver;
     public static String testURL = "https://www.google.com/";
     static By AcceptButton = By.id("L2AGLb");
     static By SearchBar = By.name("q");
     By Search = By.name("btnK");
 
-    public GooglePOM(WebDriver driver){
+    public Google(WebDriver driver){
         this.driver=driver;
     }
 

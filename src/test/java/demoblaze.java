@@ -4,8 +4,10 @@ import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class demoblazePOM {
+public class demoblaze {
     static WebDriver driver;
+
+    //paths and id for elements that are needed for tests
     public static String testURL = "https://www.demoblaze.com/";
     static By categories = By.id("itemc");
     private WebElement phonesCategory = null;
@@ -36,7 +38,7 @@ public class demoblazePOM {
 
 
 
-    public demoblazePOM(WebDriver driver){
+    public demoblaze(WebDriver driver){
         this.driver=driver;
     }
     public void setWebElements(){
@@ -54,7 +56,6 @@ public class demoblazePOM {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         signup = driver.findElement(signUp);
         login = driver.findElement(logIn);
-      // setWebElements();
     }
 
 

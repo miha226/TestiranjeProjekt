@@ -10,12 +10,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
-public class FirstTest {
+public class Testovi {
     //-------------------Global Variables-----------------------------------
 //Declare a Webdriver variable
     public WebDriver driver;
-    public GooglePOM googlePOM;
-    public demoblazePOM demoblaze;
+    public Google google;
+    public demoblaze demoblaze;
     //----------------------Test Setup-----------------------------------
     @BeforeTest
     @Parameters("browser")
@@ -24,24 +24,23 @@ public class FirstTest {
         switch (browser.toLowerCase()){
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                //Create a new ChromeDriver
                 driver = new ChromeDriver();
                 break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
         }
-        googlePOM = new GooglePOM(driver);
-        demoblaze = new demoblazePOM(driver);
-
+        google = new Google(driver);
+        demoblaze = new demoblaze(driver);
     }
+
+
     @Test
     public void googleSearchTest() throws InterruptedException {
-        googlePOM.navigateToGoogle();
-        googlePOM.GoogleSearch("demoblaze");
+        google.navigateToGoogle();
+        google.GoogleSearch("demoblaze");
         WebElement testLink = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/a/h3"));
         Assert.assertEquals(testLink.getText(), "BlazeDemo");
-       // System.out.print(testLink.getText());
     }
 
 
@@ -66,7 +65,7 @@ public class FirstTest {
         demoblaze.logInWriteUsername("test");
         demoblaze.logInWritePasssword("test");
         demoblaze.logInClickButtonAccept();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         Assert.assertEquals(demoblaze.getUsername(),"Welcome test");
         Thread.sleep(1000);
     }
@@ -101,21 +100,23 @@ public class FirstTest {
     @Test(priority = 5)
     public void removeFirstItemFromCarts() throws InterruptedException{
         demoblaze.openCart();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         int initialPrice= demoblaze.getTotalPrice();
         demoblaze.removeCartItemNumber(1);
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         int priceAfterChange = demoblaze.getTotalPrice();
         Assert.assertEquals(initialPrice, priceAfterChange+360);
         demoblaze.removeCartItemNumber(1);
+        Thread.sleep(1000);
     }
     @Test(priority = 6)
     public void sendContactMessage() throws InterruptedException{
         demoblaze.clickOnContact();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         demoblaze.setContactEmail("test@google.com");
         demoblaze.setContactName("test");
         demoblaze.setContactMessage("This is test");
+        Thread.sleep(2000);
         demoblaze.contactSendMessage();
         Alert alert = driver.switchTo().alert();
         Assert.assertEquals(alert.getText(),"Thanks for the message!!");
@@ -127,7 +128,7 @@ public class FirstTest {
     //---------------Test TearDown-----------------------------------
     @AfterTest
     public void teardownTest() {
-//Close browser and end the session
+    //Close browser and end the session
         driver.quit();
     }
 }
