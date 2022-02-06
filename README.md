@@ -25,11 +25,21 @@
 
 ## How to change or add browsers on which tests are preformed
 1. Add new case in Testovi.java
-![image](https://user-images.githubusercontent.com/23449108/152692387-b8104fdd-5e48-45b5-a5d3-f0c071e4117c.png)
-Syntax for other browsers is shown bellow
-![image](https://user-images.githubusercontent.com/23449108/152691762-19da5846-298f-497b-b7a9-5883e97d04d5.png)
-2. You need to change parameter value in testng.xml to name of case for browser
+
+
 ![image](https://user-images.githubusercontent.com/23449108/152692406-7e3a9942-b708-4d65-ba5b-1725e470bb47.png)
+
+
+Syntax for other browsers is shown bellow
+
+
+![image](https://user-images.githubusercontent.com/23449108/152691762-19da5846-298f-497b-b7a9-5883e97d04d5.png)
+
+
+2. You need to change parameter value in testng.xml to name of case for browser
+
+![image](https://user-images.githubusercontent.com/23449108/152692387-b8104fdd-5e48-45b5-a5d3-f0c071e4117c.png)
+
 
 
 
