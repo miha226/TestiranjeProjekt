@@ -41,6 +41,11 @@ Syntax for other browsers is shown bellow
 ![image](https://user-images.githubusercontent.com/23449108/152692387-b8104fdd-5e48-45b5-a5d3-f0c071e4117c.png)
 
 
+## Known Issues and Problems
+1. Sometimes tests cannot find webelement because the browser slows down and does not complete the previous command.
+2. Sometimes items remain in the cart from the last test,
+
+
 
 
 
